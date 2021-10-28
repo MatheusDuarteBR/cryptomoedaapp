@@ -1,6 +1,6 @@
 # cryptobas
 
-A new Flutter project.
+N2 PARA O DESENVOLVIMENTO APP
 
 ## Getting Started
 
