@@ -2,6 +2,8 @@
 
 N2 PARA O DESENVOLVIMENTO APP
 
+GRUPO: MATHEUS DUARTE, KHAUE SOUZA
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
