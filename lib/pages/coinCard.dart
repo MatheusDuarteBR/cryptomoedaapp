@@ -68,7 +68,7 @@ class CoinCard extends StatelessWidget {
                 width: 60,
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child: Image.network(imageUrl),
+                  child: FadeInImage.assetNetwork(placeholder: 'images/placeholder.png', image: imageUrl)
                 ),
               ),
             ),
@@ -107,7 +107,7 @@ class CoinCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    price.toDouble().toString(),
+                    price.toDouble().toString() + ' USD',
                     style: TextStyle(
                       color: Colors.grey[900],
                       fontSize: 20,
@@ -116,8 +116,8 @@ class CoinCard extends StatelessWidget {
                   ),
                   Text(
                     change.toDouble() < 0
-                        ? change.toDouble().toString()
-                        : '+' + change.toDouble().toString(),
+                        ? change.toDouble().toStringAsFixed(2)
+                        : '+' + change.toDouble().toStringAsFixed(2),
                     style: TextStyle(
                       color: change.toDouble() < 0 ? Colors.red : Colors.green,
                       fontSize: 18,
@@ -126,8 +126,8 @@ class CoinCard extends StatelessWidget {
                   ),
                   Text(
                     changePercentage.toDouble() < 0
-                        ? changePercentage.toDouble().toString() + '%'
-                        : '+' + changePercentage.toDouble().toString() + '%',
+                        ? changePercentage.toDouble().toStringAsFixed(2) + '%'
+                        : '+' + changePercentage.toDouble().toStringAsFixed(2) + '%',
                     style: TextStyle(
                       color: changePercentage.toDouble() < 0
                           ? Colors.red

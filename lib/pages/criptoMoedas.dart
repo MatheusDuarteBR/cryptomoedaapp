@@ -1,32 +1,17 @@
 import 'dart:async';
 import 'dart:convert';
-
-import 'package:cryptobas/coinCard.dart';
+import 'package:cryptobas/pages/coinCard.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../pages/coinModel.dart';
 
-import 'coinModel.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class CriptoMoeda extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Home(),
-    );
-  }
+  _CriptoMoedaState createState() => _CriptoMoedaState();
 }
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
+class _CriptoMoedaState extends State<CriptoMoeda> {
   Future<List<Coin>> fetchCoin() async {
     coinList = [];
     final response = await http.get(Uri.parse(
@@ -48,14 +33,14 @@ class _HomeState extends State<Home> {
       }
       return coinList;
     } else {
-      throw Exception('Failed to load coins');
+      throw Exception('Falha ao carregar as moedas');
     }
   }
 
   @override
   void initState() {
     fetchCoin();
-    Timer.periodic(Duration(seconds: 10), (timer) => fetchCoin());
+    Timer.periodic(Duration(seconds: 20), (timer) => fetchCoin());
     super.initState();
   }
 
